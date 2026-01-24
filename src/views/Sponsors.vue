@@ -72,7 +72,7 @@ onMounted(loadSponsors)
 
     <div class="be-sponsor">
       <p>Vous souhaitez soutenir l'association ?</p>
-      <router-link to="/contact" class="btn-contact">Devenir Sponsor</router-link>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScISU2q48Yhe3-_Plty1iMCH2v74IC-Oa_a8G2TrusGkNWrsQ/viewform?usp=publish-editor" class="btn-contact">Devenir Sponsor</a>
     </div>
   </div>
 </template>

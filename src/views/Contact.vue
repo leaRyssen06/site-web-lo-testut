@@ -59,9 +59,13 @@ onMounted(loadBureau)
     <section class="intro-box">
       <h2>Un mot du Bureau</h2>
       <p>
-        "Bienvenue sur l'espace contact de Lo Testut. Notre équipe de bénévoles passionnés œuvre
-        chaque jour pour faire vivre les traditions de Montblanc. N'hésitez pas à nous contacter
-        pour toute question ou pour nous rejoindre !"
+        "Lo Testut est une association profondément liée aux traditions de Montblanc, œuvrant
+        pour leur transmission et leur mise en valeur. Le poulain, notre animal totémique, incarne
+        cet esprit de jeunesse, de vitalité et d’attachement à nos racines. Ce site vous présente
+        l’ensemble des informations sur notre association : activités, événements, photos et
+        actualités qui font vivre Lo Testut tout au long de l’année. <br>
+        Ce mot de bienvenue vous est adressé par l’ensemble du bureau. <br>
+        Bonne visite et au plaisir de vous retrouver lors de nos rendez-vous !!"
       </p>
     </section>
 

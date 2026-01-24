@@ -27,9 +27,26 @@ import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-
 
       <hr class="separator" />
 
+      <div class="legal-info">
+        <p><strong>LO TESTUT</strong> - Association déclarée</p>
+        <p>SIRET : 817 944 812 00012 | RNA : W341007234</p>
+        <p>Siège : Rue de la République, 34290 Montblanc</p>
+      </div>
+
       <div class="credits">
         <p>© 2026 Lo Testut - Tous droits réservés</p>
-        <p class="author">Site réalisé par <strong>RYSSEN Léa</strong></p>
+        <p class="author">
+          Site réalisé par
+          <strong>
+            <a
+              href="https://learyssen06.github.io/portfolio-vue/"
+              target="_blank"
+              class="portfolio-link"
+            >
+              RYSSEN Léa
+            </a>
+          </strong>
+        </p>
       </div>
     </div>
   </footer>
@@ -37,7 +54,7 @@ import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-
 
 <style scoped>
 .main-footer {
-  background-color: #f5f5dc; /* Fond beige  */
+  background-color: #f5f5dc;
   padding: 30px 20px;
   margin-top: 50px;
   border-top: 1px solid #ddd;
@@ -77,10 +94,53 @@ import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-
 .credits {
   font-size: 0.85rem;
   color: #666;
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
+  padding-top: 15px;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 .author {
   margin-top: 5px;
   color: #333;
+}
+
+.legal-info {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.legal-info p {
+  margin: 2px 0;
+}
+
+.portfolio-link {
+  color: #d32f2f;
+  text-decoration: none;
+  position: relative;
+  padding: 2px 5px;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid #ffd700;
+}
+
+.portfolio-link:hover {
+  background-color: #ffd700;
+  color: #333;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.2);
+}
+
+
+.portfolio-link::after {
+  content: ' ↗';
+  font-size: 0.7rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.portfolio-link:hover::after {
+  opacity: 1;
 }
 </style>

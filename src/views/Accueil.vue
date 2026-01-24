@@ -3,10 +3,12 @@
 <template>
   <div class="home-container">
     <section class="hero-banner">
-      <img src="@/assets/img/photo-accueil.png" alt="Lo Testut" class="banner-img" />
+      <img src="@/assets/img/photo-accueil.jpeg" alt="Lo Testut" class="banner-img" />
       <div class="hero-overlay">
         <h1>Bienvenue chez Lo Testut</h1>
-        <p class="hero-description">Association culturelle et traditionnelle de Montblanc</p>
+        <p class="hero-description">
+          Le poulain de Montblanc association culturelle et traditionnelle
+        </p>
       </div>
     </section>
 
@@ -80,12 +82,12 @@
       <section class="actions">
         <div class="action-card goodies">
           <h3>Boutique de l'Association</h3>
-          <p>Commandez vos goodies via notre formulaire de précommande.</p>
+          <p>Préommandez vos goodies et habillez-vous Lo Testut !</p>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSe0T_Jy2ldyACJmGBzkhCJmA3JRj8T-oZsP0SfffEeXDLx9nQ/viewform?usp=header"
             target="_blank"
             class="btn"
-            >Commander des goodies</a
+            >Précommander des goodies</a
           >
         </div>
 
