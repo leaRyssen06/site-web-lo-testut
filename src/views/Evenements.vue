@@ -146,7 +146,20 @@ onMounted(loadEvents)
 <template>
   <div class="events-container">
     <div class="calendar-section">
-      <v-calendar expanded :attributes="attributes" @dayclick="handleDayClick" :rows="2" />
+      <div class="calendar-wrapper">
+        <v-calendar expanded :attributes="attributes" @dayclick="handleDayClick" :rows="2" />
+      </div>
+
+      <div class="calendar-legend">
+        <div class="legend-item">
+          <span class="dot bg-red-legend"></span>
+          <span class="legend-text">Événement à Montblanc</span>
+        </div>
+        <div class="legend-item">
+          <span class="dot bg-yellow-legend"></span>
+          <span class="legend-text">Événement hors Montblanc</span>
+        </div>
+      </div>
     </div>
 
     <div class="event-sidebar" v-if="selectedEvent">
@@ -177,28 +190,79 @@ onMounted(loadEvents)
 <style scoped>
 .events-container {
   display: flex;
+  align-items: stretch; /* Les deux colonnes gardent la même hauteur */
   gap: 20px;
-  background-color: #fff6f0; /* Fond beige */
+  background-color: #fff6f0;
   padding: 20px;
-  /* Force la hauteur sur la taille de l'écran moins les éventuelles marges */
-  height: calc(100vh - 40px);
+  min-height: calc(100vh - 100px);
   box-sizing: border-box;
-  overflow: hidden; /* Empêche le scroll global de la page */
 }
 
 .calendar-section {
-  flex: 1;
-  height: 100%;
+  flex: 1.2;
   display: flex;
+  flex-direction: column;
+}
+
+.calendar-wrapper {
+  flex: 1; /* Le calendrier prend tout l'espace au-dessus de la légende */
+  overflow: hidden;
+}
+
+.calendar-legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  border: 2px solid #ffd700;
+  margin-top: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.bg-red-legend {
+  background-color: #d32f2f;
+}
+.bg-yellow-legend {
+  background-color: #ffd700;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* On force le calendrier V-Calendar à prendre toute la place de son parent */
 :deep(.vc-container) {
   width: 100% !important;
-  height: 100% !important;
-  display: flex;
-  flex-direction: column;
   border: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 900px) {
+  .calendar-legend {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .events-container {
+    flex-direction: column;
+  }
+  .event-sidebar {
+    height: 500px;
+  }
 }
 
 :deep(.vc-weeks) {
@@ -219,57 +283,51 @@ onMounted(loadEvents)
 }
 
 .event-sidebar {
-  flex: 1; /* Même poids que le calendrier pour avoir la même largeur */
-  height: 100%;
+  flex: 1;
+  display: flex; /* Important pour que l'enfant direct s'étire */
 }
 
 .poster-card {
   background: white;
-  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Organise Image en haut, Footer en bas */
   border: 3px solid #ffd700;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .event-poster {
   width: 100%;
-  /* On lui donne 70% de la hauteur max, le reste est pour le texte/bouton */
-  height: 70%;
-  object-fit: contain;
+  flex: 1; /* L'image mange tout l'espace restant pour s'aligner au calendrier */
+  min-height: 0; /* Permet à l'image de se réduire si nécessaire */
+  object-fit: contain; /* Garde les proportions de l'affiche sans la couper */
   background-color: #f0f0f0;
-  border-bottom: 2px solid #ffd700;
 }
 
 .poster-footer {
-  flex-grow: 1; /* Prend le reste de la place (30%) */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centre le titre et le bouton verticalement */
   padding: 15px;
+  background: white;
+  border-top: 2px solid #ffd700;
+  text-align: center;
+  /* On ne met pas de flex ici pour que le footer garde sa taille naturelle */
 }
 
 .mini-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #d32f2f;
-  margin: 0 0 10px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; /* Coupe le texte proprement s'il est trop long */
-  text-align: center;
+  margin-bottom: 10px;
 }
 
 .btn-more {
   display: block;
   background-color: #d32f2f;
   color: white;
-  padding: 12px;
+  padding: 10px;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-  transition: transform 0.2s;
-  text-align: center;
 }
 
 .btn-more:hover {
