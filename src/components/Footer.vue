@@ -54,7 +54,7 @@ import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-
 
 <style scoped>
 .main-footer {
-  background-color: #f5f5dc;
+  background-color: #fff6f0;
   padding: 30px 20px;
   margin-top: 50px;
   border-top: 1px solid #ddd;
@@ -131,7 +131,6 @@ import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(211, 47, 47, 0.2);
 }
-
 
 .portfolio-link::after {
   content: ' ↗';

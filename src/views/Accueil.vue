@@ -104,7 +104,7 @@
 <style scoped>
 /* Reset de base pour que l'image colle aux bords */
 .home-container {
-  background-color: #fdfaf0; /* Beige plus doux */
+  background-color: #FFF6F0; /* Beige plus doux */
   min-height: 100vh;
 }
 

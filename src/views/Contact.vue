@@ -59,12 +59,12 @@ onMounted(loadBureau)
     <section class="intro-box">
       <h2>Un mot du Bureau</h2>
       <p>
-        "Lo Testut est une association profondément liée aux traditions de Montblanc, œuvrant
-        pour leur transmission et leur mise en valeur. Le poulain, notre animal totémique, incarne
-        cet esprit de jeunesse, de vitalité et d’attachement à nos racines. Ce site vous présente
+        "Lo Testut est une association profondément liée aux traditions de Montblanc, œuvrant pour
+        leur transmission et leur mise en valeur. Le poulain, notre animal totémique, incarne cet
+        esprit de jeunesse, de vitalité et d’attachement à nos racines. Ce site vous présente
         l’ensemble des informations sur notre association : activités, événements, photos et
-        actualités qui font vivre Lo Testut tout au long de l’année. <br>
-        Ce mot de bienvenue vous est adressé par l’ensemble du bureau. <br>
+        actualités qui font vivre Lo Testut tout au long de l’année. <br />
+        Ce mot de bienvenue vous est adressé par l’ensemble du bureau. <br />
         Bonne visite et au plaisir de vous retrouver lors de nos rendez-vous !!"
       </p>
     </section>
@@ -93,7 +93,7 @@ onMounted(loadBureau)
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 20px;
-  background-color: #fdfaf0;
+  background-color: #fff6f0;
   min-height: 100vh;
 }
 

@@ -24,7 +24,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #f5f5dc; /* Fond beige [cite: 13] */
+  background-color: #fff6f0; /* Fond beige [cite: 13] */
   border-bottom: 2px solid #ffd700; /* Ligne de séparation jaune  */
 }
 

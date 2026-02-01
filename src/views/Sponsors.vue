@@ -72,7 +72,11 @@ onMounted(loadSponsors)
 
     <div class="be-sponsor">
       <p>Vous souhaitez soutenir l'association ?</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScISU2q48Yhe3-_Plty1iMCH2v74IC-Oa_a8G2TrusGkNWrsQ/viewform?usp=publish-editor" class="btn-contact">Devenir Sponsor</a>
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLScISU2q48Yhe3-_Plty1iMCH2v74IC-Oa_a8G2TrusGkNWrsQ/viewform?usp=publish-editor"
+        class="btn-contact"
+        >Devenir Sponsor</a
+      >
     </div>
   </div>
 </template>
@@ -80,7 +84,7 @@ onMounted(loadSponsors)
 <style scoped>
 .sponsors-page {
   padding: 60px 20px;
-  background-color: #fdfaf0;
+  background-color: #fff6f0;
   min-height: 100vh;
   text-align: center;
 }

@@ -162,7 +162,7 @@ onMounted(loadGalerie)
 <style scoped>
 .galerie-page {
   padding: 40px;
-  background-color: #fdfaf0;
+  background-color: #fff6f0;
   min-height: 100vh;
   text-align: center;
 }

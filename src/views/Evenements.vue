@@ -178,7 +178,7 @@ onMounted(loadEvents)
 .events-container {
   display: flex;
   gap: 20px;
-  background-color: #f5f5dc; /* Fond beige */
+  background-color: #fff6f0; /* Fond beige */
   padding: 20px;
   /* Force la hauteur sur la taille de l'écran moins les éventuelles marges */
   height: calc(100vh - 40px);

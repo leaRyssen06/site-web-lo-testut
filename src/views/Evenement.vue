@@ -180,7 +180,7 @@ onMounted(loadDetail)
 <style scoped>
 .page-detail {
   padding: 40px;
-  background-color: #f5f5dc;
+  background-color: #fff6f0;
   min-height: 100vh;
   font-family: sans-serif;
 }
