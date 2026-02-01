@@ -121,6 +121,21 @@ const formattedProgramme = computed(() => {
     .filter((line) => line.content !== '') // On ignore les lignes vides
 })
 
+// Fonction pour transformer "2026-01-25" en "25 janvier 2026"
+const formatDate = (dateString) => {
+  if (!dateString) return ''
+  const date = new Date(dateString)
+
+  // Vérifie si la date est valide
+  if (isNaN(date.getTime())) return dateString
+
+  return new Intl.DateTimeFormat('fr-FR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date)
+}
+
 onMounted(loadDetail)
 </script>
 
@@ -137,7 +152,13 @@ onMounted(loadDetail)
         <h1>{{ event.titre }}</h1>
         <div class="meta">
           <p><strong>📍 Lieu :</strong> {{ event.lieu }}</p>
-          <p><strong>📅 Dates :</strong> Du {{ event.dateDebut }} au {{ event.dateFin }}</p>
+          <p v-if="event.dateDebut === event.dateFin">
+            <strong>📅 Date :</strong> Le {{ formatDate(event.dateDebut) }}
+          </p>
+          <p v-else>
+            <strong>📅 Dates :</strong> Du {{ formatDate(event.dateDebut) }} au
+            {{ formatDate(event.dateFin) }}
+          </p>
         </div>
 
         <div class="programme-section">
