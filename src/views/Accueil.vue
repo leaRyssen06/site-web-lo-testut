@@ -1,9 +1,63 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const homeData = ref({
+  imageAccueil: '',
+  lienGoodies: '',
+  lienAdhesion: '',
+})
+const loading = ref(true)
+
+// --- CONFIGURATION SHEET ---
+const url = `https://docs.google.com/spreadsheets/d/e/2PACX-1vQTgrzvu5X2EjJYjVNUQ9r2gs9jk3LP_CzGu_zZPS6KXDAiGubNFMKVXgbOuT8d5VP6Hzs5IrsmCHwv/pub?gid=203903673&single=true&output=csv`
+
+const fixDriveLink = (url) => {
+  if (!url || !url.includes('drive.google.com')) return url
+  const match = url.match(/\/d\/(.+?)\//) || url.match(/id=(.+?)(?:&|$)/)
+  const id = match ? match[1] : null
+  return id ? `https://lh3.googleusercontent.com/d/${id}=w1200` : url
+}
+
+const loadHomeData = async () => {
+  try {
+    const response = await fetch(url)
+    const csvRaw = await response.text()
+
+    // On récupère la ligne 2 (la première ligne de données après l'entête)
+    const lines = csvRaw
+      .split(/\r?\n(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+      .filter((l) => l.trim().length > 0)
+    const dataRow = lines[1] // Ligne 1 = Entête, Ligne 2 = Données
+
+    if (dataRow) {
+      const col = dataRow
+        .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+        .map((c) => c.trim().replace(/^"|"$/g, ''))
+      homeData.value = {
+        imageAccueil: fixDriveLink(col[0]),
+        lienGoodies: col[1],
+        lienAdhesion: col[2],
+      }
+    }
+  } catch (err) {
+    console.error('Erreur chargement Accueil', err)
+  } finally {
+    loading.value = false
+  }
+}
+
+onMounted(loadHomeData)
+</script>
 
 <template>
   <div class="home-container">
     <section class="hero-banner">
-      <img src="@/assets/img/photo-accueil.jpeg" alt="Lo Testut" class="banner-img" />
+      <img
+        :src="homeData.imageAccueil || '@/assets/img/photo-accueil.jpeg'"
+        alt="Lo Testut"
+        class="banner-img"
+        referrerpolicy="no-referrer"
+      />
       <div class="hero-overlay">
         <h1>Bienvenue chez Lo Testut</h1>
         <p class="hero-description">
@@ -82,19 +136,14 @@
       <section class="actions">
         <div class="action-card goodies">
           <h3>Boutique de l'Association</h3>
-          <p>Préommandez vos goodies et habillez-vous Lo Testut !</p>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSe0T_Jy2ldyACJmGBzkhCJmA3JRj8T-oZsP0SfffEeXDLx9nQ/viewform?usp=header"
-            target="_blank"
-            class="btn"
-            >Précommander des goodies</a
-          >
+          <p>Commandez vos goodies et habillez-vous Lo Testut !</p>
+          <a :href="homeData.lienGoodies" target="_blank" class="btn">Commander des goodies</a>
         </div>
 
         <div class="action-card adhesion">
           <h3>Nous rejoindre</h3>
           <p>Soutenez l'association en adhérant pour l'année.</p>
-          <a href="urlHelloAsso" target="_blank" class="btn">Adhérer sur HelloAsso</a>
+          <a :href="homeData.lienAdhesion" target="_blank" class="btn">Adhérer sur HelloAsso</a>
         </div>
       </section>
     </div>
@@ -104,7 +153,7 @@
 <style scoped>
 /* Reset de base pour que l'image colle aux bords */
 .home-container {
-  background-color: #FFF6F0; /* Beige plus doux */
+  background-color: #fff6f0; /* Beige plus doux */
   min-height: 100vh;
 }
 
