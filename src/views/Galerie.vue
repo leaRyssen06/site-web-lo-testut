@@ -90,7 +90,7 @@ const nextImage = () => {
   }
 }
 const prevImage = () => {
-  if (selectedImage.value > 0) {
+  if (selectedIndex.value > 0) {
     selectedIndex.value--
   } else {
     selectedIndex.value = displayedPhotos.value.length - 1
