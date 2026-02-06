@@ -114,7 +114,7 @@ onMounted(loadHomeData)
               repérer.
             </p>
             <p style="text-indent: 2em">
-              On raconte qu de temps en temps, quand il sentait qu'une fête se préparait, il
+              On raconte que de temps en temps, quand il sentait qu'une fête se préparait, il
               redecendait au village, flânait dans les ruelles et menait la danse sous les porches
               au rythme des fifres et des tambours. tout le monde le suivait et s'écriait "al cuol
               del muòl ! au cul du mulet ! al cuol del muòl ! (prononcer "al kioul des miol"). Puis
@@ -126,7 +126,7 @@ onMounted(loadHomeData)
               garrigue ...
             </p>
             <p style="text-indent: 2em">
-              Il sait maintenant qu'il est immortel et il amie bien quand on l'appelle "lo Garrigot"
+              Il sait maintenant qu'il est immortel et il aime bien quand on l'appelle "lo Garrigot"
               et qu'on le suive au cri de "Totes al cuol del muòl !!!".
             </p>
           </div>
