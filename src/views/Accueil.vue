@@ -104,7 +104,7 @@ onMounted(loadHomeData)
             </p>
             <p style="text-indent: 2em">
               Il coulait des jours paisaibles à la vigne quand en 1915, la grande guerre arriva et
-              le gouvernement militaire décidea de réquisitionner tous les animaux de trait pour
+              le gouvernement militaire décida de réquisitionner tous les animaux de trait pour
               aller tirer les canons sur le front de l'Est.
             </p>
             <p style="text-indent: 2em">
